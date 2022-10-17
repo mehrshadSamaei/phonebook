@@ -10,5 +10,4 @@ import lombok.*;
 @ToString
 public class PhoneBookRootDTO extends BaseDTO<Long> {
     private String name;
-    private Long userId;
 }

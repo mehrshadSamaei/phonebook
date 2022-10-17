@@ -13,10 +13,9 @@ import java.util.Set;
 @ToString
 public class ContactRootDTO extends BaseDTO<Long> {
     private Integer pageNum;
-    private Set<String> mobileNum;
-    private Set<String> phoneNum;
-    private Set<String> organizeNum;
-    private Set<String> faxNum;
+    private String mobileNum;
+    private String phoneNum;
+    private String organizeNum;
+    private String faxNum;
     private String emil;
-    private GithubRequestDTO github;
 }

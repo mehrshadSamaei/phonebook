@@ -7,12 +7,12 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseService<D extends BaseDTO<ID> ,
+public interface BaseService<D extends BaseDTO<ID> ,M extends BaseDTO<ID> ,
         ID extends Serializable> {
 
-    D save(D d);
+    D save(M m);
 
-    D update(D d);
+    D update(M m);
 
     void deleteById(ID id);
 

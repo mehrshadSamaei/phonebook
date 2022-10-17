@@ -14,52 +14,46 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class BaseServiceImpl<E extends BaseEntity<ID>,
         D extends BaseDTO<ID>,
+        T extends BaseDTO<ID>,
         ID extends Serializable,
         M extends BaseMapper<D, E, ID>,
-        R extends BaseRepository<E, ID>> implements BaseService<D, ID> {
+        R extends BaseRepository<E, ID>> implements BaseService<D, T, ID> {
     protected final R repository;
     protected final M mapper;
 
+
     @Override
-    public D save(D d) {
-        E e = mapper.convertDToE(d);
-        e = repository.save(e);
-        return mapper.convertEToD(e);
+    public void deleteById(Serializable serializable) {
+
     }
 
     @Override
-    public D update(D d) {
-        E e = mapper.convertDToE(d);
-        e = repository.save(e);
-        return mapper.convertEToD(e);
+    public D save(T t) {
+        return null;
     }
 
     @Override
-    public void deleteById(ID id) {
-        repository.deleteById(id);
+    public D update(T t) {
+        return null;
     }
 
     @Override
     public List<D> findAll() {
-        List<E> eList = repository.findAll();
-        return eList.stream().map(mapper::convertEToD).collect(Collectors.toList());
+        return null;
     }
 
     @Override
-    public Optional<D> findById(ID id) {
-        return repository.findById(id).map(mapper::convertEToD);
-
+    public Optional<D> findById(Serializable serializable) {
+        return Optional.empty();
     }
 
     @Override
     public Page<D> findAll(Pageable pageable) {
-        Page<E> all = repository.findAll(pageable);
-        List<D> collect = all.stream().map(mapper::convertEToD).collect(Collectors.toList());
-        return (Page<D>) collect;
+        return null;
     }
 
     @Override
-    public boolean existById(ID id) {
-        return id != null;
+    public boolean existById(Serializable serializable) {
+        return false;
     }
 }
