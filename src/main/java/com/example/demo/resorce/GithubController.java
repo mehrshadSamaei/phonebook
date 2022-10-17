@@ -39,7 +39,7 @@ public class GithubController {
                 githubService.update(githubRequestDTO)
         );
     }
-    @GetMapping("all-githubs")
+    @GetMapping("all-github")
     public ResponseEntity<List<GithubResponseDTO>> findAllGithub(){
         return ResponseEntity.ok(
                 githubService.findAll()

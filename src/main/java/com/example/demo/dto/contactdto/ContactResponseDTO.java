@@ -17,5 +17,4 @@ public class ContactResponseDTO extends BaseDTO<Long> {
     private Set<String> organizeNum;
     private Set<String> faxNum;
     private String emil;
-    private GithubResponseDTO github;
 }
