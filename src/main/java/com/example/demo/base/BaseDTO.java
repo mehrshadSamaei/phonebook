@@ -18,5 +18,5 @@ public abstract class BaseDTO<ID extends Serializable> implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
     @Column(name = "is_active")
-    private Boolean isActive;
+    private Boolean isActive = true;
 }

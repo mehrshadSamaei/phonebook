@@ -18,5 +18,7 @@ public abstract class BaseEntity <ID extends Serializable> implements Serializab
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
     @Column(name = "is_active")
-    private Boolean isActive;
+    private Boolean isActive = true;
+    @Version
+    private Integer version;
 }
