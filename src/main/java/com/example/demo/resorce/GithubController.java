@@ -21,7 +21,7 @@ public class GithubController {
     }
     @GetMapping("find-github")
     public ResponseEntity<GithubResponseDTO> findById(@RequestParam Long id){
-        GithubResponseDTO githubResponseDTO = githubService.findById(id).get();
+        GithubResponseDTO githubResponseDTO = githubService.findById(id);
         return ResponseEntity.ok(
                 githubResponseDTO
         );
@@ -46,7 +46,7 @@ public class GithubController {
         );
     }
     @PostMapping
-    public ResponseEntity<List<GitHubRootDTO>> findAllPagination(@RequestBody GithubSearch githubSearch){
+    public ResponseEntity<List<GithubResponseDTO>> findAllPagination(@RequestBody GithubSearch githubSearch){
         return ResponseEntity.ok(
                 githubService.findAllByAdvanceSearch(githubSearch)
         );

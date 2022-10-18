@@ -1,13 +1,11 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.base.BaseServiceImpl;
-import com.example.demo.dto.root.UserRootDTO;
 import com.example.demo.dto.search.UserSearch;
 import com.example.demo.dto.userdto.UserRequestDTO;
 import com.example.demo.dto.userdto.UserResponseDTO;
 import com.example.demo.entity.User;
 import com.example.demo.mapper.response.UserResponseMapper;
-import com.example.demo.mapper.root.UserRootMapper;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +23,13 @@ import java.util.List;
 public class UserServiceImpl extends BaseServiceImpl
         <User , UserResponseDTO , UserRequestDTO , Long , UserResponseMapper , UserRepository>
         implements UserService {
-
+    @Autowired
     public UserServiceImpl(UserRepository repository, UserResponseMapper mapper) {
         super(repository, mapper);
     }
 
     @Override
-    public List<UserRootDTO> findAllByAdvanceSearch(UserSearch userSearch) {
+    public List<UserResponseDTO> findAllByAdvanceSearch(UserSearch userSearch) {
         repository.findAll(
                 (root, query, criteriaBuilder) -> {
                     List<Predicate> predicates = new ArrayList<>();

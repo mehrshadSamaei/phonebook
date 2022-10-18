@@ -20,7 +20,7 @@ public class PhoneBookController {
 
     @GetMapping("/find-phone-book")
     public ResponseEntity<PhoneBookResponseDTO> getByIdPhoneBook(@RequestParam Long id){
-        PhoneBookResponseDTO phoneBookResponseDTO = phoneBookService.findById(id).get();
+        PhoneBookResponseDTO phoneBookResponseDTO = phoneBookService.findById(id);
         return ResponseEntity.ok(
                 phoneBookResponseDTO
         );
@@ -47,8 +47,8 @@ public class PhoneBookController {
         );
     }
     @PostMapping("/search-phone-book")
-    public ResponseEntity<List<PhoneBookRootDTO>> findAllPagination(@RequestBody PhoneBookSearch phoneBookSearch){
-        List<PhoneBookRootDTO> allByAdvanceSearch = phoneBookService.findAllByAdvanceSearch(phoneBookSearch);
+    public ResponseEntity<List<PhoneBookResponseDTO>> findAllPagination(@RequestBody PhoneBookSearch phoneBookSearch){
+        List<PhoneBookResponseDTO> allByAdvanceSearch = phoneBookService.findAllByAdvanceSearch(phoneBookSearch);
         return ResponseEntity.ok(
                 allByAdvanceSearch
         );

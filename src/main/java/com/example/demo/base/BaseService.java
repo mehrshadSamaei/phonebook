@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseService<D extends BaseDTO<ID> ,M extends BaseDTO<ID> ,
+public interface BaseService<D extends BaseDTO<ID>, M extends BaseDTO<ID>,
         ID extends Serializable> {
 
     D save(M m);
@@ -18,12 +18,11 @@ public interface BaseService<D extends BaseDTO<ID> ,M extends BaseDTO<ID> ,
 
     List<D> findAll();
 
-    Optional<D> findById(ID id);
+    D findById(ID id);
 
     Page<D> findAll(Pageable pageable);
 
     boolean existById(ID id);
-
 
 
 }

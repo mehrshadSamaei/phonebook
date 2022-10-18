@@ -9,5 +9,5 @@ import com.example.demo.dto.search.ContactSearch;
 import java.util.List;
 
 public interface ContactService extends BaseService<ContactResponseDTO , ContactRequestDTO , Long> {
-    List<ContactRootDTO> findAllByAdvanceSearch(ContactSearch contactSearch);
+    List<ContactResponseDTO> findAllByAdvanceSearch(ContactSearch contactSearch);
 }

@@ -1,5 +1,4 @@
 package com.example.demo.resorce;
-import com.example.demo.dto.root.UserRootDTO;
 import com.example.demo.dto.search.UserSearch;
 import com.example.demo.dto.userdto.UserRequestDTO;
 import com.example.demo.dto.userdto.UserResponseDTO;
@@ -20,7 +19,7 @@ public class UserRestController {
 
    @GetMapping
     public ResponseEntity<UserResponseDTO> getById(@RequestParam Long id){
-       UserResponseDTO userResponseDTO = userService.findById(id).get();
+       UserResponseDTO userResponseDTO = userService.findById(id);
        return ResponseEntity.ok(
                userResponseDTO
        );
@@ -54,8 +53,8 @@ public class UserRestController {
        );
    }
    @PostMapping("/search")
-    public ResponseEntity<List<UserRootDTO>> findAllAdvanceSearch(@RequestBody UserSearch userSearch){
-       List<UserRootDTO> allByAdvanceSearch = userService.findAllByAdvanceSearch(userSearch);
+    public ResponseEntity<List<UserResponseDTO>> findAllAdvanceSearch(@RequestBody UserSearch userSearch){
+       List<UserResponseDTO> allByAdvanceSearch = userService.findAllByAdvanceSearch(userSearch);
        return ResponseEntity.ok(
                allByAdvanceSearch
        );

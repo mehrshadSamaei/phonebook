@@ -14,8 +14,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class BaseDTO<ID extends Serializable> implements Serializable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
     @Column(name = "is_active")
     private Boolean isActive = true;

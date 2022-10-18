@@ -3,20 +3,11 @@ package com.example.demo.service.impl;
 import com.example.demo.base.BaseServiceImpl;
 import com.example.demo.dto.contactdto.ContactRequestDTO;
 import com.example.demo.dto.contactdto.ContactResponseDTO;
-import com.example.demo.dto.root.ContactRootDTO;
-import com.example.demo.dto.root.UserRootDTO;
 import com.example.demo.dto.search.ContactSearch;
 import com.example.demo.entity.Contact;
-import com.example.demo.entity.User;
-import com.example.demo.mapper.response.ContactRseponseMapper;
-import com.example.demo.mapper.root.ContactRootMapper;
-import com.example.demo.mapper.root.UserRootMapper;
+import com.example.demo.mapper.response.ContactResponseMapper;
 import com.example.demo.repository.ContactRepository;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.ContactService;
-import com.example.demo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,17 +19,17 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class ContactServiceImpl extends BaseServiceImpl<Contact , ContactResponseDTO , ContactRequestDTO , Long ,
-        ContactRseponseMapper , ContactRepository>
-        implements ContactService {
+public class ContactServiceImpl extends BaseServiceImpl<
+        Contact , ContactResponseDTO , ContactRequestDTO , Long ,
+        ContactResponseMapper, ContactRepository>implements ContactService {
 
-    public ContactServiceImpl(ContactRepository repository, ContactRseponseMapper mapper) {
+
+    public ContactServiceImpl(ContactRepository repository, ContactResponseMapper mapper) {
         super(repository, mapper);
     }
 
-
     @Override
-    public List<ContactRootDTO> findAllByAdvanceSearch(ContactSearch contactSearch) {
+    public List<ContactResponseDTO> findAllByAdvanceSearch(ContactSearch contactSearch) {
         repository.findAll(
                 ((root, query, criteriaBuilder) -> {
                     List<Predicate> predicates = new ArrayList<>();

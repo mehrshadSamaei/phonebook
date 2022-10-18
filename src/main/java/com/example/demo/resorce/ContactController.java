@@ -19,7 +19,7 @@ public class ContactController {
     }
     @GetMapping("/find-contact-id")
     public ResponseEntity<ContactResponseDTO> getById(@RequestParam Long id){
-        ContactResponseDTO contactResponseDTO = contactService.findById(id).get();
+        ContactResponseDTO contactResponseDTO = contactService.findById(id);
         return ResponseEntity.ok(
                 contactResponseDTO
         );
@@ -46,8 +46,8 @@ public class ContactController {
         );
     }
     @PostMapping("/search-contact")
-    public ResponseEntity<List<ContactRootDTO>> findAllSearch(@RequestBody ContactSearch contactSearch){
-        List<ContactRootDTO> allByAdvanceSearch = contactService.findAllByAdvanceSearch(contactSearch);
+    public ResponseEntity<List<ContactResponseDTO>> findAllSearch(@RequestBody ContactSearch contactSearch){
+        List<ContactResponseDTO> allByAdvanceSearch = contactService.findAllByAdvanceSearch(contactSearch);
         return ResponseEntity.ok(allByAdvanceSearch);
     }
 }

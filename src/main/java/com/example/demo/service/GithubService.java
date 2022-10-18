@@ -9,5 +9,5 @@ import com.example.demo.dto.search.GithubSearch;
 import java.util.List;
 
 public interface GithubService extends BaseService<GithubResponseDTO , GithubRequestDTO , Long> {
-    List<GitHubRootDTO> findAllByAdvanceSearch(GithubSearch githubSearch);
+    List<GithubResponseDTO> findAllByAdvanceSearch(GithubSearch githubSearch);
 }
